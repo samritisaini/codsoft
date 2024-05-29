@@ -10,9 +10,22 @@ def generate_password(length):
 
     return password
 
+def get_password_length():
+    while True:
+        try:
+            length = int(input("Enter the desired length for your password (min 6 characters): "))
+            if length < 6:
+                print("Password length should be at least 6 characters.")
+            else:
+                return length
+        except ValueError:
+            print("Please enter a valid integer.")
+
 def main():
-    # Take user input for desired password length
-    length = int(input("Enter the desired length for your password: "))
+    print("Welcome to the Password Generator!")
+
+    # Get desired password length from the user
+    length = get_password_length()
 
     # Generate password
     password = generate_password(length)
